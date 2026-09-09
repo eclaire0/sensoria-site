@@ -67,6 +67,7 @@
   .nav-links a{ text-decoration:none; font-size:15px; color:var(--ink-soft); transition:color .2s ease; }
   .nav-links a:hover{color:var(--magenta-deep);}
   .nav-cta{display:flex; align-items:center;}
+  .nav-cta-mobile{display:none;}
   .nav-toggle{ display:none; background:none; border:none; cursor:pointer; flex-direction:column; gap:5px; padding:6px; }
   .nav-toggle span{width:24px; height:2px; background:var(--ink); display:block;}
   @media (max-width:900px){
