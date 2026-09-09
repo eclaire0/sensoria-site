@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensoria — 1:1 Coaching with Claire</title>
+<meta name="description" content="Sensoria is 1:1 coaching for a closer, more honest relationship with pleasure, desire, and connection.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Fraunces:ital,opsz,wght@1,9..144,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plum:#3A1740;
+    --plum-deep:#270F2C;
+    --magenta:#E23E77;
+    --magenta-deep:#C22B60;
+    --amber:#FFB84D;
+    --cream:#FBF1E7;
+    --paper:#FFFCF8;
+    --ink:#241429;
+    --ink-soft:#5B4A63;
+    --line: rgba(36,20,41,0.12);
+    --max: 1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:'Work Sans', sans-serif; font-weight:400; line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit;}
+  h1,h2,h3,h4{
+    font-family:'Bricolage Grotesque', sans-serif;
+    font-weight:600; line-height:1.08; margin:0; letter-spacing:-0.01em;
+  }
+  p{margin:0;}
+  .container{ max-width:var(--max); margin:0 auto; padding:0 32px; }
+  section{padding:112px 0;}
+  @media (max-width:720px){ section{padding:72px 0;} .container{padding:0 22px;} }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline:2px solid var(--magenta-deep); outline-offset:3px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:16px 32px; border-radius:999px;
+    font-family:'Work Sans', sans-serif; font-size:15px; font-weight:600;
+    letter-spacing:0.01em; text-decoration:none; border:none; cursor:pointer;
+    transition:transform .22s ease, box-shadow .22s ease, background .22s ease;
+  }
+  .btn-primary{ background:var(--magenta); color:var(--paper); box-shadow:0 10px 26px -8px rgba(226,62,119,0.55); }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 16px 30px -8px rgba(226,62,119,0.65); }
+  .btn-ghost{ background:transparent; color:var(--ink); border:1.5px solid var(--line); }
+  .btn-ghost:hover{ border-color:var(--ink); }
+  .btn-on-dark{ background:var(--paper); color:var(--plum-deep); }
+  .btn-on-dark:hover{ background:var(--amber); transform:translateY(-2px); }
+  .btn-on-plum{ background:var(--amber); color:var(--plum-deep); box-shadow:0 10px 26px -8px rgba(255,184,77,0.4); }
+  .btn-on-plum:hover{ transform:translateY(-2px); }
+
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,241,231,0.88); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{ display:flex; align-items:center; justify-content:space-between; padding:20px 0; }
+  .wordmark{
+    font-family:'Bricolage Grotesque', sans-serif; font-size:23px; font-weight:700;
+    color:var(--plum-deep); text-decoration:none;
+  }
+  .wordmark .dot{color:var(--magenta);}
+  .nav-links{ display:flex; align-items:center; gap:34px; list-style:none; margin:0; padding:0; }
+  .nav-links a{ text-decoration:none; font-size:15px; color:var(--ink-soft); transition:color .2s ease; }
+  .nav-links a:hover{color:var(--magenta-deep);}
+  .nav-cta{display:flex; align-items:center;}
+  .nav-toggle{ display:none; background:none; border:none; cursor:pointer; flex-direction:column; gap:5px; padding:6px; }
+  .nav-toggle span{width:24px; height:2px; background:var(--ink); display:block;}
+  @media (max-width:900px){
+    .nav-links{ position:absolute; top:100%; left:0; right:0; background:var(--paper); flex-direction:column; align-items:flex-start; padding:24px 22px 30px; border-bottom:1px solid var(--line); display:none; gap:18px; }
+    .nav-links.open{display:flex;}
+    .nav-toggle{display:flex;}
+    .nav-cta{display:none;}
+    .nav-links .nav-cta-mobile{display:inline-flex; margin-top:6px;}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative; overflow:hidden;
+    background:
+      radial-gradient(ellipse 70% 60% at 78% 18%, rgba(255,184,77,0.35), transparent 60%),
+      radial-gradient(ellipse 60% 70% at 15% 85%, rgba(226,62,119,0.4), transparent 60%),
+      linear-gradient(155deg, var(--plum) 0%, var(--plum-deep) 100%);
+    padding:110px 0 150px;
+  }
+  .hero-grid{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center; position:relative; z-index:2; }
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr; gap:44px;} .hero{padding:64px 0 100px;} }
+  .hero h1{ font-size:clamp(42px, 6.4vw, 76px); color:var(--cream); }
+  .hero h1 .line2{ display:block; color:var(--amber); }
+  .hero-sub{ margin-top:26px; max-width:44ch; font-size:18.5px; color:rgba(251,241,231,0.78); }
+  .hero-actions{ margin-top:38px; display:flex; align-items:center; gap:26px; flex-wrap:wrap; }
+  .scroll-cue{ font-size:14.5px; color:rgba(251,241,231,0.7); text-decoration:none; border-bottom:1px solid rgba(251,241,231,0.35); padding-bottom:2px; }
+
+  .pulse-wrap{ position:relative; aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; }
+  .pulse-ring{ position:absolute; border-radius:50%; border:1.5px solid rgba(251,241,231,0.35); animation:pulse 4.5s ease-in-out infinite; }
+  .pulse-ring.p1{ width:38%; aspect-ratio:1; animation-delay:0s; }
+  .pulse-ring.p2{ width:60%; aspect-ratio:1; animation-delay:.6s; border-color:rgba(255,184,77,0.4); }
+  .pulse-ring.p3{ width:82%; aspect-ratio:1; animation-delay:1.2s; }
+  .pulse-core{ position:absolute; width:16%; aspect-ratio:1; border-radius:50%; background:radial-gradient(circle at 35% 30%, #FFD9A0, var(--magenta) 70%); box-shadow:0 0 60px 10px rgba(226,62,119,0.45); }
+  @keyframes pulse{
+    0%{ transform:scale(0.9); opacity:.05; }
+    50%{ opacity:.5; }
+    100%{ transform:scale(1.08); opacity:.05; }
+  }
+  @media (prefers-reduced-motion: reduce){ .pulse-ring{animation:none; opacity:.3;} }
+
+  /* ---------- about ---------- */
+  .about{ background:var(--cream); }
+  .about-grid{ display:grid; grid-template-columns:0.8fr 1.2fr; gap:70px; align-items:center; }
+  @media (max-width:900px){ .about-grid{grid-template-columns:1fr; gap:44px;} }
+  .portrait{
+    position:relative; aspect-ratio:0.85/1; border-radius:28px;
+    background:linear-gradient(165deg, var(--magenta), var(--plum));
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .portrait::after{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(circle at 70% 20%, rgba(255,184,77,0.4), transparent 55%);
+  }
+  .portrait span{ font-family:'Fraunces', serif; font-style:italic; font-size:110px; color:var(--paper); opacity:.92; position:relative; z-index:1; }
+  .eyebrow-note{ font-size:13px; color:var(--ink-soft); margin-top:14px; }
+  .about-copy h2{ font-size:clamp(30px, 4vw, 44px); margin-bottom:22px; }
+  .about-copy p{ font-size:17px; color:var(--ink-soft); max-width:58ch; }
+  .about-copy p + p{margin-top:16px;}
+  .about-copy em{ font-family:'Fraunces', serif; font-style:italic; color:var(--ink); }
+  .credentials{ margin-top:30px; display:flex; flex-wrap:wrap; gap:12px; list-style:none; padding:0; }
+  .credentials li{ font-size:14px; padding:9px 16px; border-radius:999px; color:var(--ink); background:var(--paper); font-weight:500; border:1px solid var(--line); }
+
+  /* ---------- section heads ---------- */
+  .process h2, .work h2, .fit h2, .stories h2, .faq h2{ font-size:clamp(30px, 4vw, 44px); max-width:16ch; }
+  .section-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:40px; margin-bottom:56px; }
+  .section-head p{ max-width:38ch; color:var(--ink-soft); font-size:16px; }
+  @media (max-width:720px){ .section-head{flex-direction:column; align-items:flex-start; gap:16px;} }
+
+  /* ---------- process ---------- */
+  .process{ background:var(--paper); }
+  .steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  @media (max-width:800px){ .steps{grid-template-columns:1fr;} }
+  .step{ background:var(--cream); border-radius:20px; padding:38px 32px; border-top:3px solid var(--magenta); }
+  .step:nth-child(2){ border-top-color:var(--amber); }
+  .step:nth-child(3){ border-top-color:var(--plum); }
+  .step-num{ font-family:'Bricolage Grotesque', sans-serif; font-weight:700; font-size:14px; color:var(--magenta-deep); }
+  .step h3{ font-size:21px; margin:16px 0 10px; font-weight:600; }
+  .step p{ color:var(--ink-soft); font-size:15.5px; }
+
+  /* ---------- offerings ---------- */
+  .work{ background:var(--cream); }
+  .cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+  @media (max-width:900px){ .cards{grid-template-columns:1fr;} }
+  .card{
+    border-radius:24px; padding:36px 30px; background:var(--paper);
+    display:flex; flex-direction:column; position:relative;
+    box-shadow:0 18px 40px -24px rgba(36,20,41,0.35);
+  }
+  .card.featured{ background:linear-gradient(165deg, var(--plum), var(--plum-deep)); color:var(--cream); }
+  .card.featured .card-price{ color:var(--amber); }
+  .card.featured .card-desc{ color:rgba(251,241,231,0.78); }
+  .tag{ position:absolute; top:-14px; left:28px; background:var(--magenta); color:var(--paper); font-size:12.5px; padding:6px 15px; border-radius:999px; font-weight:600; }
+  .card h3{ font-size:22px; font-weight:600; }
+  .card-price{ font-family:'Fraunces', serif; font-style:italic; font-size:30px; margin:14px 0 6px; color:var(--magenta-deep); }
+  .card-desc{ color:var(--ink-soft); font-size:15px; margin-bottom:24px; flex-grow:1; }
+  .card ul{ list-style:none; padding:0; margin:0 0 26px; display:flex; flex-direction:column; gap:10px; font-size:14.5px; }
+  .card.featured ul{ color:rgba(251,241,231,0.9); }
+  .card ul li::before{ content:"— "; opacity:.6; }
+  .offer-note{ margin-top:26px; font-size:13px; color:var(--ink-soft); }
+
+  /* ---------- fit ---------- */
+  .fit{ position:relative; background:linear-gradient(120deg, var(--magenta-deep), var(--plum)); color:var(--cream); }
+  .fit h2{ color:var(--paper); }
+  .fit-grid{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:60px; }
+  @media (max-width:900px){ .fit-grid{grid-template-columns:1fr; gap:36px;} }
+  .fit-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0; }
+  .fit-list li{ padding:22px 0; border-top:1px solid rgba(251,241,231,0.25); font-size:19px; font-family:'Fraunces', serif; font-style:italic; font-weight:400; line-height:1.4; }
+  .fit-list li:last-child{ border-bottom:1px solid rgba(251,241,231,0.25); }
+
+  /* ---------- stories ---------- */
+  .stories{ background:var(--paper); }
+  .stories-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+  @media (max-width:900px){ .stories-grid{grid-template-columns:1fr;} }
+  .quote{ background:var(--cream); border-radius:24px; padding:32px 28px; }
+  .quote p{ font-family:'Fraunces', serif; font-size:18.5px; line-height:1.5; font-style:italic; color:var(--ink); }
+  .quote cite{ display:block; margin-top:20px; font-style:normal; font-family:'Work Sans', sans-serif; font-size:13.5px; color:var(--ink-soft); }
+
+  /* ---------- faq ---------- */
+  .faq{ background:var(--cream); }
+  .faq-list{ max-width:820px; border-top:1px solid var(--line); }
+  .faq-item{ border-bottom:1px solid var(--line); }
+  .faq-q{
+    width:100%; background:none; border:none; display:flex; justify-content:space-between; align-items:center;
+    padding:22px 0; font-family:'Bricolage Grotesque', sans-serif; font-weight:600; font-size:18px;
+    text-align:left; color:var(--ink); cursor:pointer;
+  }
+  .faq-q .plus{ font-family:'Work Sans', sans-serif; font-size:24px; font-weight:400; color:var(--magenta-deep); transition:transform .25s ease; flex-shrink:0; margin-left:20px; }
+  .faq-item.open .faq-q .plus{ transform:rotate(45deg); }
+  .faq-a{ max-height:0; overflow:hidden; transition:max-height .3s ease; }
+  .faq-a p{ padding-bottom:22px; color:var(--ink-soft); font-size:15.5px; max-width:62ch; }
+
+  /* ---------- contact ---------- */
+  .contact{ position:relative; background:var(--plum-deep); color:var(--cream); }
+  .contact h2{ color:var(--paper); font-size:clamp(32px, 5vw, 50px); max-width:14ch; }
+  .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
+  @media (max-width:900px){ .contact-grid{grid-template-columns:1fr; gap:40px;} }
+  .contact-copy p{ color:rgba(251,241,231,0.75); font-size:17px; max-width:42ch; margin-top:20px; }
+  .contact-note{ margin-top:32px; font-size:13.5px; color:rgba(251,241,231,0.5); max-width:44ch; }
+  form{display:flex; flex-direction:column; gap:16px;}
+  .field label{ display:block; font-size:13px; color:rgba(251,241,231,0.65); margin-bottom:8px; font-weight:500; }
+  .field input, .field textarea{
+    width:100%; background:rgba(251,241,231,0.07); border:1px solid rgba(251,241,231,0.25);
+    border-radius:14px; padding:13px 16px; color:var(--paper);
+    font-family:'Work Sans', sans-serif; font-size:15px;
+  }
+  .field textarea{resize:vertical; min-height:110px;}
+  .field input::placeholder, .field textarea::placeholder{color:rgba(251,241,231,0.4);}
+
+  footer{ background:var(--plum-deep); color:rgba(251,241,231,0.55); padding:40px 0; border-top:1px solid rgba(251,241,231,0.12); }
+  .footer-row{ display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
+  .footer-links{ list-style:none; display:flex; gap:26px; padding:0; margin:0; font-size:14px; }
+  .footer-links a{ text-decoration:none; color:inherit; }
+  .footer-links a:hover{ color:var(--amber); }
+  .footer-fine{ font-size:12.5px; margin-top:18px; color:rgba(251,241,231,0.35); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#top" class="wordmark">Sensoria<span class="dot">.</span></a>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work With Me</a></li>
+        <li><a href="#fit">Is This For You</a></li>
+        <li><a href="#stories">Stories</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a class="btn btn-primary nav-cta-mobile" href="#contact">Book a Call</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="#contact">Book a Discovery Call</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>Feel more.<span class="line2">Perform less.</span></h1>
+        <p class="hero-sub">Sensoria is 1:1 coaching for people who want a closer, more honest relationship with pleasure — built through direct conversation, not performance.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-on-plum">Book a Discovery Call</a>
+          <a href="#process" class="scroll-cue">See how sessions work</a>
+        </div>
+      </div>
+      <div class="pulse-wrap" aria-hidden="true">
+        <div class="pulse-ring p3"></div>
+        <div class="pulse-ring p2"></div>
+        <div class="pulse-ring p1"></div>
+        <div class="pulse-core"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <div>
+        <div class="portrait"><span>C</span></div>
+        <p class="eyebrow-note">[Swap this shape for a real portrait of Claire when ready]</p>
+      </div>
+      <div class="about-copy">
+        <h2>Hi, I'm Claire.</h2>
+        <p>I help people close the gap between the sex life they have and the one they actually want — through direct conversation, embodiment work, and a lot of unlearning what we were taught to be ashamed of.</p>
+        <p>My approach mixes plain, judgment-free talk with practical tools you can actually use — not just theory. Whatever brought you here, you don't have to explain it perfectly for us to start.</p>
+        <p><em>[Placeholder bio — replace with Claire's real story, training, and voice.]</em></p>
+        <ul class="credentials">
+          <li>Certified Sex &amp; Relationship Coach</li>
+          <li>Trained in [modality]</li>
+          <li>Working with individuals &amp; couples since [year]</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-head">
+        <h2>How we work together</h2>
+        <p>A simple container for a conversation most people never got to have.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="step-num">01</span>
+          <h3>Discovery call</h3>
+          <p>A free 20-minute call to talk about where you are, what you want, and whether we're a fit. No pressure, no pitch.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <h3>The sessions</h3>
+          <p>Structured 1:1 sessions, video or in person, built around your goals and pace — not a one-size-fits-all script.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <h3>Integration</h3>
+          <p>Small, doable practices between sessions so what we uncover actually lands in your body and your relationships.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFERINGS -->
+  <section class="work" id="work">
+    <div class="container">
+      <div class="section-head">
+        <h2>Work with me</h2>
+        <p>Every container is 1:1 and built around you. Not sure which fits? Start with a discovery call.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>Single Session</h3>
+          <p class="card-price">$XXX</p>
+          <p class="card-desc">One focused session for a specific question, decision, or moment you're in right now.</p>
+          <ul>
+            <li>75-minute session</li>
+            <li>Video or in person</li>
+            <li>Follow-up notes &amp; resources</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost">Book this</a>
+        </div>
+        <div class="card featured">
+          <span class="tag">Most chosen</span>
+          <h3>The Arc</h3>
+          <p class="card-price">$X,XXX</p>
+          <p class="card-desc">A six-session container for real, lasting change — not just a good conversation.</p>
+          <ul>
+            <li>Six 75-minute sessions</li>
+            <li>Personalized practices between calls</li>
+            <li>Direct message support</li>
+          </ul>
+          <a href="#contact" class="btn btn-on-dark">Start the arc</a>
+        </div>
+        <div class="card">
+          <h3>Ongoing Mentorship</h3>
+          <p class="card-price">$XXX<span style="font-size:16px; font-style:normal;">/mo</span></p>
+          <p class="card-desc">Monthly 1:1 for people who want a steady, long-term container for growth.</p>
+          <ul>
+            <li>Two sessions per month</li>
+            <li>Priority scheduling</li>
+            <li>Ongoing message support</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost">Inquire</a>
+        </div>
+      </div>
+      <p class="offer-note">[Placeholder pricing &amp; package details — update with Claire's real offerings]</p>
+    </div>
+  </section>
+
+  <!-- FIT -->
+  <section class="fit" id="fit">
+    <div class="container fit-grid">
+      <div>
+        <h2>You might be here if —</h2>
+      </div>
+      <ul class="fit-list">
+        <li>You're curious about kink or power play, but don't know where to start.</li>
+        <li>Sex feels like a performance, not somewhere you actually get to relax.</li>
+        <li>You want to talk about what turns you on without flinching.</li>
+        <li>You and a partner want a shared language for consent and desire.</li>
+        <li>You've done the reading — now you want it to land in your actual body.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- STORIES -->
+  <section class="stories" id="stories">
+    <div class="container">
+      <div class="section-head">
+        <h2>In their words</h2>
+        <p>Real feedback from real sessions — shared with permission.</p>
+      </div>
+      <div class="stories-grid">
+        <div class="quote">
+          <p>"Working together gave me language for things I'd felt for years but never said out loud."</p>
+          <cite>— [Placeholder testimonial, name withheld]</cite>
+        </div>
+        <div class="quote">
+          <p>"I came in curious and a little scared. I left with actual tools I still use."</p>
+          <cite>— [Placeholder testimonial, name withheld]</cite>
+        </div>
+        <div class="quote">
+          <p>"The most direct, judgment-free conversation about sex I've ever had with anyone."</p>
+          <cite>— [Placeholder testimonial, name withheld]</cite>
+        </div>
+      </div>
+      <p class="offer-note" style="margin-top:26px;">[Swap in real client quotes before launch — never publish testimonials without explicit permission]</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <h2>Questions people ask</h2>
+        <p>Still unsure? A discovery call is the easiest way to find out more.</p>
+      </div>
+      <div class="faq-list" id="faqList">
+        <div class="faq-item open">
+          <button class="faq-q" aria-expanded="true">
+            Is this therapy?
+            <span class="plus">+</span>
+          </button>
+          <div class="faq-a">
+            <p>No. I'm not a licensed therapist, and coaching isn't a substitute for mental health treatment. [Edit with Claire's actual scope of practice and any referral disclaimers.]</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Do you work with couples?
+            <span class="plus">+</span>
+          </button>
+          <div class="faq-a">
+            <p>[Placeholder answer — describe whether sessions are individual, couples, or both, and how that changes the format.]</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Is everything confidential?
+            <span class="plus">+</span>
+          </button>
+          <div class="faq-a">
+            <p>[Placeholder answer — state your confidentiality policy clearly here.]</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            What if I'm completely new to this?
+            <span class="plus">+</span>
+          </button>
+          <div class="faq-a">
+            <p>[Placeholder answer — reassure beginners, since this is likely a common concern.]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container contact-grid">
+      <div class="contact-copy">
+        <h2>Ready to start the conversation?</h2>
+        <p>Tell me a little about what's bringing you here. I read every message myself, and I'll get back to you within a couple of days.</p>
+        <p class="contact-note">This form is a static placeholder — connect it to email or a booking tool (like Calendly) before launch.</p>
+      </div>
+      <form onsubmit="return false;">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your name">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="you@email.com">
+        </div>
+        <div class="field">
+          <label for="message">What brings you here?</label>
+          <textarea id="message" placeholder="Share as much or as little as you'd like."></textarea>
+        </div>
+        <button type="submit" class="btn btn-on-plum" style="align-self:flex-start; margin-top:6px;">Send it</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-row">
+      <a href="#top" class="wordmark" style="color:var(--amber);">Sensoria<span class="dot" style="color:var(--paper);">.</span></a>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work With Me</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <p class="footer-fine">© 2026 Sensoria. Coaching services only — not a substitute for licensed medical or mental health care.</p>
+  </div>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const btn = item.querySelector('.faq-q');
+    const answer = item.querySelector('.faq-a');
+    const setHeight = () => { answer.style.maxHeight = item.classList.contains('open') ? answer.scrollHeight + 'px' : '0px'; };
+    setHeight();
+    btn.addEventListener('click', () => {
+      const willOpen = !item.classList.contains('open');
+      item.classList.toggle('open', willOpen);
+      btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      setHeight();
+    });
+    window.addEventListener('resize', setHeight);
+  });
+</script>
+
+</body>
+</html>
