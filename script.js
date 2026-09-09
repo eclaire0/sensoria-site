@@ -40,3 +40,57 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
   window.addEventListener('resize', setHeight);
 });
+
+// Intake form -> /api/intake (only present on the homepage)
+const intakeForm = document.getElementById('intakeForm');
+if (intakeForm) {
+  const status = document.getElementById('intakeStatus');
+  const submit = document.getElementById('intakeSubmit');
+
+  const setStatus = (text, state) => {
+    status.textContent = text;
+    status.className = 'form-status' + (state ? ' ' + state : '');
+  };
+
+  intakeForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      name: intakeForm.name.value.trim(),
+      email: intakeForm.email.value.trim(),
+      message: intakeForm.message.value.trim(),
+      website: intakeForm.website.value,
+    };
+
+    if (!payload.name || !payload.email || !payload.message) {
+      setStatus('Please fill in your name, email, and a short message.', 'error');
+      return;
+    }
+
+    submit.disabled = true;
+    const original = submit.textContent;
+    submit.textContent = 'Sending…';
+    setStatus('');
+
+    try {
+      const res = await fetch('/api/intake', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok && data.ok) {
+        intakeForm.reset();
+        setStatus('Thank you — your message is with Claire. You will hear back within a couple of days.', 'success');
+      } else {
+        setStatus(data.error || 'Something went wrong. Please try again.', 'error');
+      }
+    } catch {
+      setStatus('Could not reach the server. Please check your connection and try again.', 'error');
+    } finally {
+      submit.disabled = false;
+      submit.textContent = original;
+    }
+  });
+}

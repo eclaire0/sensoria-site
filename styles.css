@@ -216,6 +216,11 @@
   }
   .field textarea{resize:vertical; min-height:110px;}
   .field input::placeholder, .field textarea::placeholder{color:rgba(246,236,221,0.4);}
+  .hp{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+  .form-status{ font-size:14.5px; margin-top:2px; color:rgba(246,236,221,0.75); }
+  .form-status.error{ color:#F0A9A0; }
+  .form-status.success{ color:var(--amber); }
+  .btn[disabled]{ opacity:.6; cursor:progress; transform:none; }
 
   footer{ background:var(--plum-deep); color:rgba(246,236,221,0.55); padding:40px 0; border-top:1px solid rgba(246,236,221,0.12); }
   .footer-row{ display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }

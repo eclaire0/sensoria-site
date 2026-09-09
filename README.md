@@ -11,16 +11,23 @@ pricing, and testimonials are still placeholders.
 - `pricing.html` — three coaching packages
 - `courses.html` — placeholder page for self-paced courses
 - `styles.css` — shared styles for all pages
-- `script.js` — mobile nav, dropdown, FAQ accordion
+- `script.js` — mobile nav, dropdown, FAQ accordion, intake form submit
+- `api/intake.js` — serverless function behind the contact form
+- `supabase/migrations/` — schema for the Sensoria Supabase project
+- `docs/env-vars.md` — required environment variables and the data flow
 
-Static site, no build step. Open `index.html` directly or serve the folder.
+Static site with one serverless function. Open `index.html` directly to work on
+the pages; the contact form needs `vercel dev` and the env vars in
+`docs/env-vars.md`.
 
 ## Still to do before launch
+- Create the Sensoria Supabase project and run the migration
+- Set the env vars in Vercel (see `docs/env-vars.md`)
+- Build the ops dashboard as a separate app against this database
 - Real bio, credentials, and photo for Claire
 - Claire's own words for the "where the name comes from" section
 - Real pricing for the three offerings
 - Real answers for the four FAQ items (including scope of practice + confidentiality)
 - Real testimonials (with permission)
-- Wire up the contact form to email or a booking tool
 - Course listings once they exist
 - Connect the domain once purchased

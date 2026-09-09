@@ -233,22 +233,27 @@
       <div class="contact-copy">
         <h2>Ready to start the conversation?</h2>
         <p>Tell me a little about what's bringing you here. I read every message myself, and I'll get back to you within a couple of days.</p>
-        <p class="contact-note">This form is a static placeholder — connect it to email or a booking tool (like Calendly) before launch.</p>
+        <p class="contact-note">Your message goes directly to Claire. It is kept private and never shared.</p>
       </div>
-      <form onsubmit="return false;">
+      <form id="intakeForm" novalidate>
         <div class="field">
           <label for="name">Name</label>
-          <input id="name" type="text" placeholder="Your name">
+          <input id="name" name="name" type="text" autocomplete="name" required placeholder="Your name">
         </div>
         <div class="field">
           <label for="email">Email</label>
-          <input id="email" type="email" placeholder="you@email.com">
+          <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@email.com">
         </div>
         <div class="field">
           <label for="message">What brings you here?</label>
-          <textarea id="message" placeholder="Share as much or as little as you'd like."></textarea>
+          <textarea id="message" name="message" required placeholder="Share as much or as little as you'd like."></textarea>
         </div>
-        <button type="submit" class="btn btn-on-plum" style="align-self:flex-start; margin-top:6px;">Send it</button>
+        <div class="field hp" aria-hidden="true">
+          <label for="website">Website</label>
+          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <button type="submit" class="btn btn-on-plum" id="intakeSubmit" style="align-self:flex-start; margin-top:6px;">Send it</button>
+        <p class="form-status" id="intakeStatus" role="status" aria-live="polite"></p>
       </form>
     </div>
   </section>
