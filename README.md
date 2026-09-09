@@ -2,19 +2,25 @@
 
 Marketing site for Sensoria — 1:1 sex & intimacy coaching with Claire.
 
-## Status: concept review
+## Status: build in progress
 
-Three homepage directions, all with placeholder copy/pricing/testimonials:
+The three concept options have been replaced by a real multi-page site. Copy,
+pricing, and testimonials are still placeholders.
 
-- `option-a-warm-organic.html` — wine/terracotta palette, italic serif, soft organic shapes
-- `option-b-afterglow.html` — plum/magenta/amber gradient, pulse-ring hero motif
-- `option-c-sleek-editorial.html` — cream/white, thin serif, full-bleed color-panel hero
+- `index.html` — homepage: hero, name meaning, about, process, fit, stories, FAQ, contact
+- `pricing.html` — three coaching packages
+- `courses.html` — placeholder page for self-paced courses
+- `styles.css` — shared styles for all pages
+- `script.js` — mobile nav, dropdown, FAQ accordion
 
-Once a direction is picked, it gets renamed to `index.html` and becomes the real site.
+Static site, no build step. Open `index.html` directly or serve the folder.
 
 ## Still to do before launch
 - Real bio, credentials, and photo for Claire
+- Claire's own words for the "where the name comes from" section
 - Real pricing for the three offerings
+- Real answers for the four FAQ items (including scope of practice + confidentiality)
 - Real testimonials (with permission)
 - Wire up the contact form to email or a booking tool
+- Course listings once they exist
 - Connect the domain once purchased
