@@ -1,0 +1,7 @@
+# Pre-launch. Crawling is allowed so that the noindex meta tag in each page is
+# actually seen; the pages themselves tell crawlers not to index yet.
+# At launch: delete the noindex tags from the three HTML files, then replace
+# this file with the real allow-list and the sitemap reference.
+
+User-agent: *
+Allow: /
