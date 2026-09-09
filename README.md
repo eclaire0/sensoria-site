@@ -15,10 +15,18 @@ pricing, and testimonials are still placeholders.
 - `api/intake.js` — serverless function behind the contact form
 - `supabase/migrations/` — schema for the Sensoria Supabase project
 - `docs/env-vars.md` — required environment variables and the data flow
+- `vercel.json` — clean URLs and security headers
+- `tests/` — contract tests for the intake endpoint
 
 Static site with one serverless function. Open `index.html` directly to work on
 the pages; the contact form needs `vercel dev` and the env vars in
 `docs/env-vars.md`.
+
+Tests stub Supabase and Resend, so they need no credentials and no network:
+
+```bash
+node --test tests/*.test.mjs
+```
 
 ## Still to do before launch
 - Create the Sensoria Supabase project and run the migration
