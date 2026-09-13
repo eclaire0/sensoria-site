@@ -2,7 +2,10 @@
 
 Marketing site for Sensoria — 1:1 sex & intimacy coaching with Claire.
 
-## Status: build in progress
+## Status: working, waiting on copy
+
+The contact form is live and verified end to end — enquiries write to Supabase
+and notify Claire. What remains is Claire's words and the domain.
 
 The three concept options have been replaced by a real multi-page site. Copy,
 pricing, and testimonials are still placeholders.
@@ -29,8 +32,10 @@ node --test tests/*.test.mjs
 ```
 
 ## Still to do before launch
-- Create the Sensoria Supabase project and run the migration
-- Set the env vars in Vercel (see `docs/env-vars.md`)
+- Verify the domain in Resend so visitors get a confirmation email
+- Rotate the Resend API key and move notifications to the business address
+- Remove the three `noindex` tags and open up `robots.txt`
+- Write `llms.txt`, the sitemap and JSON-LD from the real copy
 - Build the ops dashboard as a separate app against this database
 - Real bio, credentials, and photo for Claire
 - Claire's own words for the "where the name comes from" section
