@@ -7,6 +7,11 @@
 -- Named "inbox" rather than anything close to "inquiries" so the two are never
 -- confused in the sidebar.
 
+-- Written to be re-runnable: these get pasted into the SQL editor by hand, and
+-- a half-applied run is easier to recover from than to diagnose.
+drop view if exists inbox cascade;
+drop function if exists inbox_update() cascade;
+
 create view inbox as
 select
   i.status,
