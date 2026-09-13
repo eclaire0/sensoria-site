@@ -17,6 +17,7 @@ module.exports = async (req, res) => {
   if (!apiKey) return res.status(200).json({ error: 'RESEND_API_KEY missing' });
   if (!to.length) return res.status(200).json({ error: 'INTERNAL_NOTIFICATION_EMAILS missing' });
 
+  try {
   const r = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
@@ -35,4 +36,11 @@ module.exports = async (req, res) => {
     resend_status: r.status,
     resend_response: (await r.text()).slice(0, 600),
   });
+  } catch (error) {
+    return res.status(200).json({
+      sending_from: from,
+      sending_to: to,
+      threw: String(error && error.stack ? error.stack : error).slice(0, 600),
+    });
+  }
 };
