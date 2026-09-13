@@ -95,6 +95,8 @@ test('writes client, inquiry and timeline event, then sends both emails', async 
   assert.equal(calls[1].body.email, 'jo@example.com', 'stores the lowercased email');
   assert.match(calls[2].url, /\/inquiries/);
   assert.equal(calls[2].body.client_id, 'client-1');
+  assert.equal(calls[2].body.name, 'Jo Smith', 'name is kept on the enquiry');
+  assert.equal(calls[2].body.email, 'jo@example.com', 'as typed, lowercased');
   assert.match(calls[3].url, /\/inquiry_events/);
   assert.equal(calls[3].body.created_by, 'website-form');
 

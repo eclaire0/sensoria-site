@@ -139,6 +139,10 @@ module.exports = async (req, res) => {
       body: {
         public_reference: publicReference,
         client_id: client.id,
+        // denormalised on purpose: what they typed when they wrote in, kept on
+        // the enquiry so the table reads without a join. See migration 0004.
+        name: fullName,
+        email,
         message,
         source: clean(payload.source) || 'website',
       },
