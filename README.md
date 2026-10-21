@@ -4,8 +4,17 @@ Marketing site for Sensoria — 1:1 sex & intimacy coaching with Claire.
 
 ## Status: working, waiting on copy
 
-The contact form is live and verified end to end — enquiries write to Supabase
-and notify Claire. What remains is Claire's words and the domain.
+Live at https://www.sensoriacoaching.com. The contact form writes enquiries to
+Supabase and emails Claire from `claire@sensoriacoaching.com` (domain verified in
+Resend; `claire@` forwards via Namecheap). What remains is Claire's words.
+
+Claire owns everything: this repo, the Vercel project, Supabase and Resend. Rob
+is a collaborator. The repo is public so commits from either of them deploy on
+Vercel's Hobby plan — keep secrets in Vercel environment variables, never here.
+
+The Supabase project is on the free plan and pauses after about a week with no
+activity. When it is paused the form fails with `ENOTFOUND` in the logs; restore
+it from the Supabase dashboard.
 
 The three concept options have been replaced by a real multi-page site. Copy,
 pricing, and testimonials are still placeholders.
@@ -32,8 +41,6 @@ node --test tests/*.test.mjs
 ```
 
 ## Still to do before launch
-- Verify the domain in Resend so visitors get a confirmation email
-- Rotate the Resend API key and move notifications to the business address
 - Remove the three `noindex` tags and open up `robots.txt`
 - Write `llms.txt`, the sitemap and JSON-LD from the real copy
 - Build the ops dashboard as a separate app against this database
@@ -43,4 +50,3 @@ node --test tests/*.test.mjs
 - Real answers for the four FAQ items (including scope of practice + confidentiality)
 - Real testimonials (with permission)
 - Course listings once they exist
-- Connect the domain once purchased
