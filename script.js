@@ -94,3 +94,10 @@ if (intakeForm) {
     }
   });
 }
+
+// Hero video: respect reduced-motion preference (show the still poster instead)
+const heroVideo = document.querySelector('.hero-video');
+if (heroVideo && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  heroVideo.removeAttribute('autoplay');
+  heroVideo.pause();
+}
