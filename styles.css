@@ -4,14 +4,12 @@
     --magenta:#46518A;
     --magenta-deep:#8A5634;
     --amber:#D9A877;
-    --cream:#EDE4D6;
-    --paper:#F7F2EA;
-    --ink:#262833;
-    --ink-soft:#5B5C66;
-    --line: rgba(38,40,51,0.12);
+    --cream:#F4E4D0;
+    --paper:#FBF5EC;
+    --ink:#22264A;
+    --ink-soft:#474D7A;
+    --line: rgba(34,38,74,0.14);
     --honey:#9A6440;
-    --sage:#A3B18A;
-    --olive:#5E6B4E;
     --mint:#A9CFC4;
     --sky:#DFE4EF;
     --max: 1180px;
@@ -26,8 +24,8 @@
   img,svg{display:block; max-width:100%;}
   a{color:inherit;}
   h1,h2,h3,h4{
-    font-family:'Fraunces', serif;
-    font-weight:400; line-height:1.08; margin:0; letter-spacing:-0.015em; font-variation-settings:'SOFT' 50;
+    font-family:'Jost', sans-serif;
+    font-weight:500; line-height:1.08; margin:0; letter-spacing:-0.01em;
   }
   p{margin:0;}
   .container{ max-width:var(--max); margin:0 auto; padding:0 32px; }
@@ -88,15 +86,15 @@
     position:relative; overflow:hidden;
     background:
       radial-gradient(ellipse 55% 60% at 88% 15%, rgba(169,207,196,0.38), transparent 60%),
-      radial-gradient(ellipse 50% 60% at 5% 95%, rgba(163,177,138,0.28), transparent 60%),
+      radial-gradient(ellipse 50% 60% at 5% 95%, rgba(217,168,119,0.22), transparent 60%),
       var(--paper);
     padding:96px 0 120px;
   }
   .hero-grid{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:64px; align-items:center; position:relative; z-index:2; }
   @media (max-width:900px){ .hero-grid{grid-template-columns:1fr; gap:48px;} .hero{padding:56px 0 88px;} }
-  .hero-eyebrow{ font-size:12.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--olive); font-weight:500; margin-bottom:22px; }
+  .hero-eyebrow{ font-size:12.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--honey); font-weight:500; margin-bottom:22px; }
   .hero h1{ font-size:clamp(44px, 7vw, 92px); color:var(--ink); line-height:1.0; }
-  .hero h1 .line2{ display:block; color:var(--honey); font-style:italic; }
+  .hero h1 .line2{ display:block; color:var(--honey); font-family:'Fraunces', serif; font-style:italic; font-weight:400; letter-spacing:-0.02em; }
   .hero-sub{ margin-top:26px; max-width:42ch; font-size:18.5px; color:var(--ink-soft); }
   .hero-actions{ margin-top:38px; display:flex; align-items:center; gap:26px; flex-wrap:wrap; }
   .scroll-cue{ font-size:14.5px; color:var(--ink-soft); text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px; }
@@ -105,7 +103,7 @@
   .hero-arch{ position:relative; width:100%; max-width:420px; justify-self:center; }
   .hero-arch::before{
     content:""; position:absolute; inset:0; transform:translate(22px, 22px);
-    border-radius:999px 999px 22px 22px; background:var(--sage); opacity:.55;
+    border-radius:999px 999px 22px 22px; background:var(--mint); opacity:.8;
   }
   .hero-arch-frame{
     position:relative; aspect-ratio:4/5; padding:10px;
@@ -152,7 +150,7 @@
   @media (max-width:800px){ .steps{grid-template-columns:1fr;} }
   .step{ background:var(--cream); border-radius:20px; padding:38px 32px; border-top:3px solid var(--magenta); }
   .step:nth-child(2){ border-top-color:var(--amber); }
-  .step:nth-child(3){ border-top-color:var(--sage); }
+  .step:nth-child(3){ border-top-color:var(--mint); }
   .step-num{ font-family:'Work Sans', sans-serif; font-weight:600; font-size:14px; color:var(--magenta-deep); }
   .step h3{ font-size:21px; margin:16px 0 10px; font-weight:600; }
   .step p{ color:var(--ink-soft); font-size:15.5px; }
@@ -164,7 +162,7 @@
   .card{
     border-radius:24px; padding:36px 30px; background:var(--paper);
     display:flex; flex-direction:column; position:relative;
-    box-shadow:0 18px 40px -24px rgba(38,40,51,0.35);
+    box-shadow:0 18px 40px -24px rgba(34,38,74,0.35);
   }
   .card.featured{ background:linear-gradient(165deg, var(--plum), var(--plum-deep)); color:var(--cream); }
   .card.featured .card-price{ color:var(--amber); }
@@ -208,7 +206,7 @@
   .faq-item{ border-bottom:1px solid var(--line); }
   .faq-q{
     width:100%; background:none; border:none; display:flex; justify-content:space-between; align-items:center;
-    padding:22px 0; font-family:'Fraunces', serif; font-weight:500; font-size:19px;
+    padding:22px 0; font-family:'Jost', sans-serif; font-weight:500; font-size:19px;
     text-align:left; color:var(--ink); cursor:pointer;
   }
   .faq-q .plus{ font-family:'Work Sans', sans-serif; font-size:24px; font-weight:400; color:var(--magenta-deep); transition:transform .25s ease; flex-shrink:0; margin-left:20px; }
