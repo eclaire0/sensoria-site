@@ -95,13 +95,29 @@ if (intakeForm) {
   });
 }
 
-// Hero video: smaller file on phones; respect reduced-motion (show the still poster instead)
-const heroVideo = document.querySelector('.hero-video');
-if (heroVideo && window.matchMedia('(max-width: 900px)').matches) {
-  const webm = heroVideo.canPlayType('video/webm; codecs="vp9"');
-  heroVideo.src = webm ? 'assets/video/paddle-720.webm' : 'assets/video/paddle-720.mp4'; // lighter file for phones
-}
-if (heroVideo && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  heroVideo.removeAttribute('autoplay');
-  heroVideo.pause();
-}
+// Background videos (hero arch + full-width bands)
+// - phones get the lighter 720p file (data-small="assets/video/name-720")
+// - videos marked data-lazy only load/play when scrolled into view
+// - reduced-motion visitors see the still poster instead
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isSmall = window.matchMedia('(max-width: 900px)').matches;
+document.querySelectorAll('video[data-small]').forEach(video => {
+  if (isSmall) {
+    const webm = video.canPlayType('video/webm; codecs="vp9"');
+    video.src = video.dataset.small + (webm ? '.webm' : '.mp4');
+  }
+  if (reduceMotion) {
+    video.removeAttribute('autoplay');
+    video.pause();
+    return;
+  }
+  if (video.hasAttribute('data-lazy') && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { video.play().catch(() => {}); }
+        else { video.pause(); }
+      });
+    }, { rootMargin: '200px 0px' });
+    io.observe(video);
+  }
+});
