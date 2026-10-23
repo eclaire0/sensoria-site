@@ -62,7 +62,7 @@
     background:rgba(247,242,234,0.88); backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
-  .nav{ display:flex; align-items:center; justify-content:space-between; padding:20px 0; }
+  .nav{ display:flex; align-items:center; justify-content:space-between; padding-top:20px; padding-bottom:20px; }
   .wordmark{
     font-family:'Fraunces', serif; font-size:25px; font-weight:500;
     color:var(--plum-deep); text-decoration:none;
