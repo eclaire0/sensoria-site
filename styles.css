@@ -287,7 +287,6 @@
 /* ---------- curiosity grid ---------- */
 .curiosity{ background:var(--cream); }
 .curiosity h2{ font-size:clamp(30px, 4vw, 44px); max-width:16ch; }
-.curiosity h2 em{ font-family:'Fraunces', serif; font-style:italic; font-weight:400; color:var(--honey); }
 .curio-grid{ display:flex; flex-wrap:wrap; gap:12px 14px; }
 .curio-chip{
   font-family:'Jost', sans-serif; font-size:18px; font-weight:500; color:var(--magenta);
@@ -295,7 +294,6 @@
   padding:12px 24px; cursor:pointer;
   transition:background .2s ease, color .2s ease, transform .2s ease;
 }
-.curio-chip:nth-child(3n+2){ font-family:'Fraunces', serif; font-style:italic; font-weight:400; }
 .curio-chip:hover{ transform:translateY(-2px); background:var(--sky); }
 .curio-chip[aria-pressed="true"]{ background:var(--magenta); color:var(--paper); }
 .curio-chip[aria-pressed="true"]::before{ content:"\2713\00a0"; }
