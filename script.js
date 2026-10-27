@@ -121,3 +121,30 @@ document.querySelectorAll('video[data-small]').forEach(video => {
     io.observe(video);
   }
 });
+
+// Curiosity grid: picked topics are added to the contact message
+const curioChips = document.querySelectorAll('.curio-chip');
+const curioCount = document.getElementById('curioCount');
+const curioMessage = document.getElementById('message');
+const CURIO_PREFIX = "I'm curious about: ";
+function updateCuriosity() {
+  const picked = [...curioChips]
+    .filter(c => c.getAttribute('aria-pressed') === 'true')
+    .map(c => c.textContent.trim());
+  if (curioCount) {
+    curioCount.textContent = picked.length
+      ? picked.length + (picked.length === 1 ? ' topic' : ' topics') + ' added to your message'
+      : '';
+  }
+  if (curioMessage) {
+    const lines = curioMessage.value.split('\n').filter(l => !l.startsWith(CURIO_PREFIX));
+    if (picked.length) lines.unshift(CURIO_PREFIX + picked.join(', ') + '.');
+    curioMessage.value = lines.join('\n').replace(/^\n+|\n+$/g, '');
+  }
+}
+curioChips.forEach(chip => {
+  chip.addEventListener('click', () => {
+    chip.setAttribute('aria-pressed', chip.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+    updateCuriosity();
+  });
+});
