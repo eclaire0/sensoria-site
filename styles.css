@@ -177,8 +177,8 @@
   .tag{ position:absolute; top:-14px; left:28px; background:var(--magenta); color:var(--paper); font-size:12.5px; padding:6px 15px; border-radius:999px; font-weight:600; }
   .card h3{ font-size:22px; font-weight:600; }
   .card-price{ font-family:'Fraunces', serif; font-style:italic; font-size:30px; margin:14px 0 6px; color:var(--magenta-deep); }
-  .card-desc{ color:var(--ink-soft); font-size:15px; margin-bottom:24px; flex-grow:1; }
-  .card ul{ list-style:none; padding:0; margin:0 0 26px; display:flex; flex-direction:column; gap:10px; font-size:14.5px; }
+  .card-desc{ color:var(--ink-soft); font-size:15px; margin-bottom:24px; }
+  .card ul{ list-style:none; padding:0; margin:0 0 26px; flex-grow:1; display:flex; flex-direction:column; gap:10px; font-size:14.5px; }
   .card.featured ul{ color:rgba(250,248,243,0.9); }
   .card ul li::before{ content:"— "; opacity:.6; }
   .offer-note{ margin-top:26px; font-size:13px; color:var(--ink-soft); }
