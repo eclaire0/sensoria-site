@@ -2,16 +2,18 @@
     --plum:#2E3560;
     --plum-deep:#1F2444;
     --magenta:#46518A;
-    --magenta-deep:#5F5530;
-    --amber:#CBBE92;
-    --cream:#F1EFE6;
+    --magenta-deep:#4C675E;
+    --amber:#C9A994;
+    --cream:#F3EAE4;
     --paper:#FAF8F3;
     --ink:#22264A;
     --ink-soft:#474D7A;
     --line: rgba(34,38,74,0.14);
-    --honey:#6E6237;
+    --honey:#7E6676;
     --mint:#A9CFC4;
-    --sky:#DFE4EF;
+    --sky:#C5D8E3;
+    --evergreen:#1F342A;
+    --evergreen-soft:#2E4A3F;
     --max: 1180px;
   }
   *{box-sizing:border-box;}
@@ -52,7 +54,7 @@
   .btn-ghost:hover{ border-color:var(--ink); }
   .btn-on-dark{ background:var(--paper); color:var(--plum-deep); }
   .btn-on-dark:hover{ background:var(--amber); transform:translateY(-2px); }
-  .btn-on-plum{ background:var(--amber); color:var(--plum-deep); box-shadow:0 10px 26px -8px rgba(203,190,146,0.4); }
+  .btn-on-plum{ background:var(--amber); color:var(--plum-deep); box-shadow:0 10px 26px -8px rgba(201,169,148,0.4); }
   .btn-on-plum:hover{ transform:translateY(-2px); }
 
   header{
@@ -86,13 +88,13 @@
     position:relative; overflow:hidden;
     background:
       radial-gradient(ellipse 55% 60% at 88% 15%, rgba(169,207,196,0.38), transparent 60%),
-      radial-gradient(ellipse 50% 60% at 5% 95%, rgba(110,98,55,0.10), transparent 60%),
+      radial-gradient(ellipse 50% 60% at 5% 95%, rgba(142,118,133,0.14), transparent 60%),
       var(--paper);
     padding:96px 0 120px;
   }
   .hero-grid{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; position:relative; z-index:2; }
   @media (max-width:900px){ .hero-grid{grid-template-columns:1fr; gap:48px;} .hero{padding:56px 0 88px;} }
-  .hero-eyebrow{ font-size:12.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--honey); font-weight:500; margin-bottom:22px; }
+  .hero-eyebrow{ font-size:12.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--magenta-deep); font-weight:500; margin-bottom:22px; }
   .hero h1{ font-size:clamp(44px, 7vw, 92px); color:var(--ink); line-height:1.0; }
   .hero h1 .line2{ display:block; color:var(--honey); font-family:'Fraunces', serif; font-style:italic; font-weight:400; letter-spacing:-0.02em; }
   .hero-sub{ margin-top:26px; max-width:42ch; font-size:18.5px; color:var(--ink-soft); }
@@ -148,7 +150,7 @@
   .section-video video{ width:100%; height:100%; object-fit:cover; display:block; }
   .section-video::after{
     content:""; position:absolute; inset:0;
-    background:linear-gradient(180deg, rgba(250,248,243,0.55) 0%, rgba(241,239,230,0.30) 100%);
+    background:linear-gradient(180deg, rgba(250,248,243,0.55) 0%, rgba(243,234,228,0.30) 100%);
   }
   .steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
   @media (max-width:800px){ .steps{grid-template-columns:1fr;} }
@@ -181,7 +183,7 @@
   .offer-note{ margin-top:26px; font-size:13px; color:var(--ink-soft); }
 
   /* ---------- fit ---------- */
-  .fit{ position:relative; background:linear-gradient(120deg, #3B4577, var(--plum-deep)); color:var(--cream); }
+  .fit{ position:relative; background:linear-gradient(120deg, var(--evergreen-soft), var(--evergreen)); color:var(--cream); }
   .fit h2{ color:var(--paper); }
   .fit-grid{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:60px; }
   @media (max-width:900px){ .fit-grid{grid-template-columns:1fr; gap:36px;} }
@@ -240,7 +242,7 @@
   .form-status.success{ color:var(--amber); }
   .btn[disabled]{ opacity:.6; cursor:progress; transform:none; }
 
-  footer{ background:var(--plum-deep); color:rgba(250,248,243,0.55); padding:40px 0; border-top:1px solid rgba(250,248,243,0.12); }
+  footer{ background:var(--evergreen); color:rgba(250,248,243,0.55); padding:40px 0; border-top:1px solid rgba(250,248,243,0.12); }
   .footer-row{ display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
   .footer-links{ list-style:none; display:flex; gap:26px; padding:0; margin:0; font-size:14px; }
   .footer-links a{ text-decoration:none; color:inherit; }
@@ -307,7 +309,7 @@
 @media (max-width:900px){ .meaning-grid{grid-template-columns:1fr; gap:40px;} }
 .meaning-word{
   font-family:'Fraunces', serif; font-style:italic; font-weight:400;
-  font-size:clamp(48px, 7vw, 92px); color:var(--magenta-deep); line-height:1;
+  font-size:clamp(48px, 7vw, 92px); color:var(--honey); line-height:1;
 }
 .meaning-phonetic{ font-family:'Work Sans', sans-serif; font-size:15.5px; color:var(--ink-soft); margin-top:14px; }
 .meaning-copy h2{ font-size:clamp(28px, 3.6vw, 38px); margin-bottom:20px; }
