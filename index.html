@@ -86,8 +86,12 @@
   <section class="about" id="about">
     <div class="container about-grid">
       <div>
-        <div class="portrait"><span>C</span></div>
-        <p class="eyebrow-note">[Swap this shape for a real portrait of Claire when ready]</p>
+        <div class="portrait">
+          <picture>
+            <source type="image/webp" srcset="assets/img/claire-portrait-600.webp 600w, assets/img/claire-portrait-1000.webp 1000w" sizes="(max-width: 900px) 90vw, 460px">
+            <img src="assets/img/claire-portrait-1000.jpg" srcset="assets/img/claire-portrait-600.jpg 600w, assets/img/claire-portrait-1000.jpg 1000w" sizes="(max-width: 900px) 90vw, 460px" width="1000" height="1176" loading="lazy" alt="Claire, somatic sex and intimacy coach">
+          </picture>
+        </div>
       </div>
       <div class="about-copy">
         <h2>Hi, I'm Claire.</h2>
