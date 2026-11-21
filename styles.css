@@ -244,7 +244,7 @@
 
   footer{ background:var(--evergreen); color:rgba(250,248,243,0.55); padding:40px 0; border-top:1px solid rgba(250,248,243,0.12); }
   .footer-row{ display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
-  .footer-links{ list-style:none; display:flex; gap:26px; padding:0; margin:0; font-size:14px; }
+  .footer-links{ list-style:none; display:flex; flex-wrap:wrap; gap:12px 26px; padding:0; margin:0; font-size:14px; }
   .footer-links a{ text-decoration:none; color:inherit; }
   .footer-links a:hover{ color:var(--amber); }
   .footer-fine{ font-size:12.5px; margin-top:18px; color:rgba(250,248,243,0.35); }
@@ -385,3 +385,20 @@
 .about-more{ display:inline-block; margin-top:26px; font-weight:500; color:var(--magenta); text-decoration:none; border-bottom:1px solid currentColor; padding-bottom:2px; }
 .about-more:hover{ color:var(--magenta-deep); }
 .about-approach .section-head h2, .about-training .section-head h2{ font-size:clamp(32px, 4vw, 48px); }
+
+/* ---------- coaching page ---------- */
+.coach-focus{ background:var(--cream); }
+.coach-focus .section-head h2, .coach-expect .section-head h2{ font-size:clamp(32px, 4vw, 48px); }
+.focus-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:22px; }
+@media (max-width:900px){ .focus-grid{ grid-template-columns:repeat(2, 1fr); } }
+@media (max-width:600px){ .focus-grid{ grid-template-columns:1fr; } }
+.focus-card{ background:var(--paper); border-radius:20px; padding:30px 28px; border-top:3px solid var(--magenta-deep); }
+.focus-card:nth-child(3n+2){ border-top-color:var(--honey); }
+.focus-card:nth-child(3n){ border-top-color:var(--magenta); }
+.focus-card h3{ font-size:21px; margin-bottom:10px; }
+.focus-card p{ color:var(--ink-soft); font-size:15.5px; margin:0; }
+.coach-expect{ background:var(--paper); }
+.expect-list{ list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(2, 1fr); gap:18px 40px; max-width:960px; }
+@media (max-width:720px){ .expect-list{ grid-template-columns:1fr; } }
+.expect-list li{ padding:22px 0; border-top:1px solid var(--line); color:var(--ink-soft); font-size:16.5px; }
+.expect-list strong{ display:block; color:var(--ink); font-family:'Jost', sans-serif; font-weight:500; font-size:19px; margin-bottom:4px; }
