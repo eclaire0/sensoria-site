@@ -1,14 +1,14 @@
 :root{
-    --plum:#2E3560;
-    --plum-deep:#1F2444;
-    --magenta:#46518A;
+    --plum:#344C50;
+    --plum-deep:#283B3E;
+    --magenta:#3F5A5E;
     --magenta-deep:#4C675E;
     --amber:#C9A994;
     --cream:#F3EAE4;
     --paper:#FAF8F3;
-    --ink:#22264A;
-    --ink-soft:#474D7A;
-    --line: rgba(34,38,74,0.14);
+    --ink:#23302F;
+    --ink-soft:#4A5A5B;
+    --line: rgba(35,48,47,0.14);
     --honey:#7E6676;
     --mint:#A9CFC4;
     --sky:#C5D8E3;
@@ -48,8 +48,8 @@
     letter-spacing:0.01em; text-decoration:none; border:none; cursor:pointer;
     transition:transform .22s ease, box-shadow .22s ease, background .22s ease;
   }
-  .btn-primary{ background:var(--magenta); color:var(--paper); box-shadow:0 10px 26px -8px rgba(70,81,138,0.55); }
-  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 16px 30px -8px rgba(70,81,138,0.65); }
+  .btn-primary{ background:var(--magenta); color:var(--paper); box-shadow:0 10px 26px -8px rgba(63,90,94,0.55); }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 16px 30px -8px rgba(63,90,94,0.65); }
   .btn-ghost{ background:transparent; color:var(--ink); border:1.5px solid var(--line); }
   .btn-ghost:hover{ border-color:var(--ink); }
   .btn-on-dark{ background:var(--paper); color:var(--plum-deep); }
@@ -168,7 +168,7 @@
   .card{
     border-radius:24px; padding:36px 30px; background:var(--paper);
     display:flex; flex-direction:column; position:relative;
-    box-shadow:0 18px 40px -24px rgba(34,38,74,0.35);
+    box-shadow:0 18px 40px -24px rgba(35,48,47,0.35);
   }
   .card.featured{ background:linear-gradient(165deg, var(--plum), var(--plum-deep)); color:var(--cream); }
   .card.featured .card-price{ color:var(--amber); }
@@ -346,7 +346,7 @@
 .header-video video{ width:100%; height:100%; object-fit:cover; object-position:center 35%; display:block; }
 .header-video::after{
   content:""; position:absolute; inset:0;
-  background:linear-gradient(100deg, rgba(31,36,68,0.82) 0%, rgba(46,53,96,0.60) 55%, rgba(46,53,96,0.40) 100%);
+  background:linear-gradient(100deg, rgba(40,59,62,0.82) 0%, rgba(52,76,80,0.60) 55%, rgba(52,76,80,0.40) 100%);
 }
 .page-header .eyebrow{
   display:inline-block; font-size:13px; letter-spacing:0.14em; text-transform:uppercase;
