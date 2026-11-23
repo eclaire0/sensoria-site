@@ -13,8 +13,10 @@ is a collaborator. The repo is public so commits from either of them deploy on
 Vercel's Hobby plan — keep secrets in Vercel environment variables, never here.
 
 The Supabase project is on the free plan and pauses after about a week with no
-activity. When it is paused the form fails with `ENOTFOUND` in the logs; restore
-it from the Supabase dashboard.
+activity. A daily Vercel cron (`/api/keepalive`, see `vercel.json`) runs one tiny
+read to keep it awake. If it pauses anyway, the form still emails Claire the full
+message (flagged as not saved) and logs "Supabase returned a non-JSON response";
+restore the project from the Supabase dashboard.
 
 The three concept options have been replaced by a real multi-page site. Copy,
 pricing, and testimonials are still placeholders.

@@ -47,7 +47,13 @@ async function sb(path, { method = 'GET', body, prefer } = {}) {
   });
 
   const text = await res.text();
-  const data = text ? JSON.parse(text) : null;
+  let data = null;
+  try {
+    data = text ? JSON.parse(text) : null;
+  } catch {
+    // A paused or unreachable Supabase project answers with an HTML page.
+    throw new Error(`Supabase returned a non-JSON response (${res.status})`);
+  }
   if (!res.ok) {
     const message = (data && (data.message || data.error)) || `Supabase responded ${res.status}`;
     throw new Error(message);
@@ -117,6 +123,8 @@ module.exports = async (req, res) => {
   if (!message) return res.status(400).json({ ok: false, error: 'Please add a short message.' });
   if (message.length > 5000) return res.status(400).json({ ok: false, error: 'That message is a little too long — please shorten it.' });
 
+  const publicReference = reference();
+  let saved = false;
   try {
     const now = new Date().toISOString();
 
@@ -133,7 +141,6 @@ module.exports = async (req, res) => {
           prefer: 'return=representation',
         }))[0];
 
-    const publicReference = reference();
     const inquiry = (await sb('inquiries', {
       method: 'POST',
       body: {
@@ -161,24 +168,31 @@ module.exports = async (req, res) => {
       },
     });
 
-    await sendEmail({
-      to: NOTIFY,
-      replyTo: email,
-      subject: `New Sensoria inquiry — ${fullName}`,
-      text: `Reference: ${publicReference}\nName: ${fullName}\nEmail: ${email}\n\nMessage:\n${message}\n\nReply directly to this email to reach them.`,
-    });
-
-    // Deliberately discreet: no subject line or body that discloses what this
-    // is about, since inboxes are not always private.
-    await sendEmail({
-      to: email,
-      subject: 'Sensoria — I got your message',
-      text: `Hi ${fullName},\n\nThank you for reaching out. I read every message myself and I'll get back to you within a couple of days.\n\n— Claire\nSensoria`,
-    });
-
-    return res.status(200).json({ ok: true, reference: publicReference });
+    saved = true;
   } catch (error) {
-    console.error('Intake submission failed', error);
+    // Keep going: the message still reaches Claire by email even if the
+    // database is paused or down, so no enquiry is ever lost.
+    console.error('Intake submission failed to save', error);
+  }
+
+  const notified = await sendEmail({
+    to: NOTIFY,
+    replyTo: email,
+    subject: `New Sensoria inquiry — ${fullName}`,
+    text: `Reference: ${publicReference}\nName: ${fullName}\nEmail: ${email}\n\nMessage:\n${message}\n\nReply directly to this email to reach them.${saved ? '' : '\n\nNote: this enquiry could not be saved to the database (Supabase may be paused). This email is the only copy.'}`,
+  });
+
+  if (!saved && !notified.sent) {
     return res.status(500).json({ ok: false, error: 'Something went wrong saving your message. Please try again, or email us directly.' });
   }
+
+  // Deliberately discreet: no subject line or body that discloses what this
+  // is about, since inboxes are not always private.
+  await sendEmail({
+    to: email,
+    subject: 'Sensoria — I got your message',
+    text: `Hi ${fullName},\n\nThank you for reaching out. I look forward to reading your message, and I'll get back to you within a couple of days.\n\n— Claire\nSensoria`,
+  });
+
+  return res.status(200).json({ ok: true, reference: publicReference });
 };

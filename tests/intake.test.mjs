@@ -126,7 +126,7 @@ test('updates rather than duplicates a returning client', async () => {
   assert.match(patch.url, /id=eq\.existing-1/);
 });
 
-test('a database failure returns 500 without leaking internals', async () => {
+test('if both the database and email fail, returns 500 without leaking internals', async () => {
   stubFetch([], { fail: true });
   const res = mockRes();
   const consoleError = console.error; // the handler logs this failure on purpose
@@ -138,4 +138,27 @@ test('a database failure returns 500 without leaking internals', async () => {
   }
   assert.equal(res.code, 500);
   assert.ok(!JSON.stringify(res.body).includes('internal detail'));
+});
+
+test('a paused database still emails Claire the full message and succeeds', async () => {
+  const calls = [];
+  globalThis.fetch = async (url, opt) => {
+    const u = String(url);
+    calls.push({ url: u, body: opt?.body ? JSON.parse(opt.body) : null });
+    if (u.includes('supabase.co')) return new Response('<!DOCTYPE html><html>paused</html>', { status: 503 });
+    return new Response('{}', { status: 200 });
+  };
+  const res = mockRes();
+  const consoleError = console.error;
+  console.error = () => {};
+  try {
+    await loadHandler()({ method: 'POST', body: valid }, res);
+  } finally {
+    console.error = consoleError;
+  }
+  assert.equal(res.code, 200);
+  const emails = calls.filter((c) => c.url.includes('resend.com'));
+  assert.equal(emails.length, 2);
+  assert.ok(emails[0].body.text.includes('hello there'), 'Claire gets the message itself');
+  assert.ok(emails[0].body.text.includes('could not be saved'), 'and is told it was not saved');
 });
