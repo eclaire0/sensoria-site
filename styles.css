@@ -317,7 +317,7 @@
 .photo-band picture, .photo-band img{ display:block; width:100%; height:100%; }
 .photo-band img{ object-fit:cover; object-position:47% 45%; }
 .photo-band--rosemary img{ object-position:50% 58%; }
-.photo-band--aloe img{ object-position:55% 50%; }
+.photo-band--aloe img{ object-position:45% 50%; }
 .photo-band--garden img{ object-position:50% 45%; }
 
 /* ---------- full-width video band ---------- */
