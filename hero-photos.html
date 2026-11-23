@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Cover photo options — Sensoria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@1,9..144,400,50&family=Jost:wght@500&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{ --paper:#FAF8F3; --ink:#23302F; --soft:#4A5A5B; --sage:#4C675E; --mauve:#7E6676; --slate:#3F5A5E; --nude:#C9A994; --dark:#1E2D2F; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; font-family:'Work Sans',sans-serif; background:#EDE7E1; color:var(--ink); }
+  .note{ max-width:1180px; margin:0 auto; padding:40px 24px 8px; }
+  .note h1{ font-family:'Jost',sans-serif; font-weight:500; font-size:28px; margin:0 0 6px; }
+  .note p{ margin:0; color:var(--soft); }
+  .opt{ max-width:1180px; margin:36px auto 0; padding:0 24px; }
+  .opt > .lab{ font-family:'Jost',sans-serif; font-weight:500; font-size:19px; margin:0 0 4px; }
+  .opt > .desc{ color:var(--soft); font-size:15px; margin:0 0 14px; max-width:70ch; }
+  .frame{ border-radius:18px; overflow:hidden; box-shadow:0 10px 40px -18px rgba(30,45,47,.45); background:var(--paper); }
+  .eyebrow{ font-size:12px; letter-spacing:.18em; text-transform:uppercase; font-weight:500; }
+  .h{ font-family:'Jost',sans-serif; font-weight:500; line-height:1.0; margin:10px 0 0; letter-spacing:-0.01em; }
+  .h em{ font-family:'Fraunces',serif; font-style:italic; font-weight:400; }
+  .sub{ font-size:17px; line-height:1.6; max-width:40ch; margin:18px 0 0; }
+  .btn{ display:inline-block; margin-top:24px; padding:13px 24px; border-radius:999px; font-weight:500; font-size:15px; text-decoration:none; }
+  /* A */
+  .a{ position:relative; aspect-ratio:16/9; min-height:420px; }
+  .a img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:60% 45%; }
+  .a::after{ content:""; position:absolute; inset:0; background:linear-gradient(90deg, rgba(30,45,47,.78) 0%, rgba(30,45,47,.35) 45%, transparent 75%); }
+  .a .copy{ position:absolute; left:6%; bottom:10%; z-index:1; color:var(--paper); max-width:40%; }
+  .a .eyebrow{ color:#E6D2C6; } .a .h{ font-size:clamp(38px,5.2vw,76px); } .a .h em{ color:#E6D2C6; } .a .sub{ color:rgba(250,248,243,.88); }
+  .a .btn{ background:var(--nude); color:var(--dark); }
+  /* B */
+  .b{ display:grid; grid-template-columns:1.05fr 0.95fr; min-height:560px; }
+  .b .copy{ padding:64px 56px; display:flex; flex-direction:column; justify-content:center; }
+  .b .eyebrow{ color:var(--sage); } .b .h{ font-size:clamp(40px,5.5vw,80px); } .b .h em{ color:var(--mauve); } .b .sub{ color:var(--soft); }
+  .b .btn{ background:var(--slate); color:var(--paper); align-self:flex-start; }
+  .b img{ width:100%; height:100%; object-fit:cover; object-position:50% 40%; display:block; }
+  /* C */
+  .c{ padding:64px 40px 40px; text-align:center; }
+  .c .eyebrow{ color:var(--sage); } .c .h{ font-size:clamp(40px,6vw,88px); } .c .h em{ color:var(--mauve); }
+  .c .sub{ color:var(--soft); margin-left:auto; margin-right:auto; }
+  .c .btn{ background:var(--slate); color:var(--paper); }
+  .c img{ display:block; width:100%; aspect-ratio:2.4/1; object-fit:cover; border-radius:18px; margin-top:40px; }
+  .after{ max-width:1180px; margin:40px auto 80px; padding:0 24px; color:var(--soft); }
+  @media (max-width:760px){
+    .a{ aspect-ratio:auto; min-height:560px; } .a img{ object-position:68% 40%; }
+    .a::after{ background:linear-gradient(0deg, rgba(30,45,47,.85) 0%, rgba(30,45,47,.3) 55%, transparent 80%); }
+    .b{ grid-template-columns:1fr; } .b img{ height:440px; order:-1; } .b .copy{ padding:40px 26px; }
+    .c{ padding:44px 20px 20px; }
+  }
+  .a.right::after{ background:linear-gradient(270deg, rgba(30,45,47,.78) 0%, rgba(30,45,47,.35) 45%, transparent 75%); }
+  .a.right .copy{ left:auto; right:5%; text-align:right; }
+  .a.right .sub{ margin-left:auto; }
+</style>
+</head>
+<body>
+  <div class="note"><h1>Cover photo options for layout A</h1><p>Same full-bleed layout with six different photos from your shoot.</p></div>
+  <section class="opt">
+    <p class="lab">1. Golden light</p>
+    <p class="desc">Warm and welcoming; you are looking right at the visitor.</p>
+    <div class="frame a ">
+      <img src="assets/img/hero-opt/a.jpg" alt="">
+      <div class="copy">
+        <div class="eyebrow">Somatic sex &amp; intimacy coaching</div>
+        <p class="h">Feel more.<br><em>Perform less.</em></p>
+        <p class="sub">1:1 coaching for a closer, more honest relationship with pleasure.</p>
+        <a class="btn" href="#">Book a Discovery Call</a>
+      </div>
+    </div>
+  </section>
+  <section class="opt">
+    <p class="lab">2. Seated on the steps</p>
+    <p class="desc">Relaxed and approachable, with lots of green on the left for the headline.</p>
+    <div class="frame a ">
+      <img src="assets/img/hero-opt/a2.jpg" alt="">
+      <div class="copy">
+        <div class="eyebrow">Somatic sex &amp; intimacy coaching</div>
+        <p class="h">Feel more.<br><em>Perform less.</em></p>
+        <p class="sub">1:1 coaching for a closer, more honest relationship with pleasure.</p>
+        <a class="btn" href="#">Book a Discovery Call</a>
+      </div>
+    </div>
+  </section>
+  <section class="opt">
+    <p class="lab">3. Wide garden</p>
+    <p class="desc">The most environmental: palms, garden path, and you in the middle of it.</p>
+    <div class="frame a ">
+      <img src="assets/img/hero-opt/a3.jpg" alt="">
+      <div class="copy">
+        <div class="eyebrow">Somatic sex &amp; intimacy coaching</div>
+        <p class="h">Feel more.<br><em>Perform less.</em></p>
+        <p class="sub">1:1 coaching for a closer, more honest relationship with pleasure.</p>
+        <a class="btn" href="#">Book a Discovery Call</a>
+      </div>
+    </div>
+  </section>
+  <section class="opt">
+    <p class="lab">4. Dusk with the leash</p>
+    <p class="desc">Moody, bold, and the most kink-forward, with the ocean behind you.</p>
+    <div class="frame a ">
+      <img src="assets/img/hero-opt/a4.jpg" alt="">
+      <div class="copy">
+        <div class="eyebrow">Somatic sex &amp; intimacy coaching</div>
+        <p class="h">Feel more.<br><em>Perform less.</em></p>
+        <p class="sub">1:1 coaching for a closer, more honest relationship with pleasure.</p>
+        <a class="btn" href="#">Book a Discovery Call</a>
+      </div>
+    </div>
+  </section>
+  <section class="opt">
+    <p class="lab">5. Eyes closed (text on the right)</p>
+    <p class="desc">Sensual and inward. Pairs naturally with "Feel more."</p>
+    <div class="frame a right">
+      <img src="assets/img/hero-opt/a5.jpg" alt="">
+      <div class="copy">
+        <div class="eyebrow">Somatic sex &amp; intimacy coaching</div>
+        <p class="h">Feel more.<br><em>Perform less.</em></p>
+        <p class="sub">1:1 coaching for a closer, more honest relationship with pleasure.</p>
+        <a class="btn" href="#">Book a Discovery Call</a>
+      </div>
+    </div>
+  </section>
+  <section class="opt">
+    <p class="lab">6. Close smile on the steps</p>
+    <p class="desc">Intimate and friendly; the closest framing of your face.</p>
+    <div class="frame a ">
+      <img src="assets/img/hero-opt/a6.jpg" alt="">
+      <div class="copy">
+        <div class="eyebrow">Somatic sex &amp; intimacy coaching</div>
+        <p class="h">Feel more.<br><em>Perform less.</em></p>
+        <p class="sub">1:1 coaching for a closer, more honest relationship with pleasure.</p>
+        <a class="btn" href="#">Book a Discovery Call</a>
+      </div>
+    </div>
+  </section>
+  <p class="after">The final version will get the same color grade as the rest of the site.</p>
+</body>
+</html>
