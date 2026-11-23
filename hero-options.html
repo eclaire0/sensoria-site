@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Cover layout options — Sensoria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@1,9..144,400,50&family=Jost:wght@500&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{ --paper:#FAF8F3; --ink:#23302F; --soft:#4A5A5B; --sage:#4C675E; --mauve:#7E6676; --slate:#3F5A5E; --nude:#C9A994; --dark:#1E2D2F; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; font-family:'Work Sans',sans-serif; background:#EDE7E1; color:var(--ink); }
+  .note{ max-width:1180px; margin:0 auto; padding:40px 24px 8px; }
+  .note h1{ font-family:'Jost',sans-serif; font-weight:500; font-size:28px; margin:0 0 6px; }
+  .note p{ margin:0; color:var(--soft); }
+  .opt{ max-width:1180px; margin:36px auto 0; padding:0 24px; }
+  .opt > .lab{ font-family:'Jost',sans-serif; font-weight:500; font-size:19px; margin:0 0 4px; }
+  .opt > .desc{ color:var(--soft); font-size:15px; margin:0 0 14px; max-width:70ch; }
+  .frame{ border-radius:18px; overflow:hidden; box-shadow:0 10px 40px -18px rgba(30,45,47,.45); background:var(--paper); }
+  .eyebrow{ font-size:12px; letter-spacing:.18em; text-transform:uppercase; font-weight:500; }
+  .h{ font-family:'Jost',sans-serif; font-weight:500; line-height:1.0; margin:10px 0 0; letter-spacing:-0.01em; }
+  .h em{ font-family:'Fraunces',serif; font-style:italic; font-weight:400; }
+  .sub{ font-size:17px; line-height:1.6; max-width:40ch; margin:18px 0 0; }
+  .btn{ display:inline-block; margin-top:24px; padding:13px 24px; border-radius:999px; font-weight:500; font-size:15px; text-decoration:none; }
+  /* A */
+  .a{ position:relative; aspect-ratio:16/9; min-height:420px; }
+  .a img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:60% 45%; }
+  .a::after{ content:""; position:absolute; inset:0; background:linear-gradient(90deg, rgba(30,45,47,.78) 0%, rgba(30,45,47,.35) 45%, transparent 75%); }
+  .a .copy{ position:absolute; left:7%; bottom:12%; z-index:1; color:var(--paper); }
+  .a .eyebrow{ color:#E6D2C6; } .a .h{ font-size:clamp(40px,6vw,84px); } .a .h em{ color:#E6D2C6; } .a .sub{ color:rgba(250,248,243,.88); }
+  .a .btn{ background:var(--nude); color:var(--dark); }
+  /* B */
+  .b{ display:grid; grid-template-columns:1.05fr 0.95fr; min-height:560px; }
+  .b .copy{ padding:64px 56px; display:flex; flex-direction:column; justify-content:center; }
+  .b .eyebrow{ color:var(--sage); } .b .h{ font-size:clamp(40px,5.5vw,80px); } .b .h em{ color:var(--mauve); } .b .sub{ color:var(--soft); }
+  .b .btn{ background:var(--slate); color:var(--paper); align-self:flex-start; }
+  .b img{ width:100%; height:100%; object-fit:cover; object-position:50% 40%; display:block; }
+  /* C */
+  .c{ padding:64px 40px 40px; text-align:center; }
+  .c .eyebrow{ color:var(--sage); } .c .h{ font-size:clamp(40px,6vw,88px); } .c .h em{ color:var(--mauve); }
+  .c .sub{ color:var(--soft); margin-left:auto; margin-right:auto; }
+  .c .btn{ background:var(--slate); color:var(--paper); }
+  .c img{ display:block; width:100%; aspect-ratio:2.4/1; object-fit:cover; border-radius:18px; margin-top:40px; }
+  .after{ max-width:1180px; margin:40px auto 80px; padding:0 24px; color:var(--soft); }
+  @media (max-width:760px){
+    .a{ aspect-ratio:auto; min-height:560px; } .a img{ object-position:68% 40%; }
+    .a::after{ background:linear-gradient(0deg, rgba(30,45,47,.85) 0%, rgba(30,45,47,.3) 55%, transparent 80%); }
+    .b{ grid-template-columns:1fr; } .b img{ height:440px; order:-1; } .b .copy{ padding:40px 26px; }
+    .c{ padding:44px 20px 20px; }
+  }
+</style>
+</head>
+<body>
+  <div class="note">
+    <h1>Cover layout options</h1>
+    <p>Three ways to open the homepage with a photo. The collar video moves further down the page in every version.</p>
+  </div>
+
+  <section class="opt">
+    <p class="lab">A. Full-bleed cover photo</p>
+    <p class="desc">Your photo fills the whole first screen, with the headline over a soft dark fade on the left. The most immersive and luxe option.</p>
+    <div class="frame a">
+      <img src="assets/img/hero-opt/a.jpg" alt="Claire smiling in golden garden light">
+      <div class="copy">
+        <div class="eyebrow">Somatic sex &amp; intimacy coaching</div>
+        <p class="h">Feel more.<br><em>Perform less.</em></p>
+        <p class="sub">1:1 coaching for a closer, more honest relationship with pleasure.</p>
+        <a class="btn" href="#">Book a Discovery Call</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="opt">
+    <p class="lab">B. Split screen</p>
+    <p class="desc">Headline on clean linen on the left, a tall photo running edge to edge on the right. Calm, readable, and the closest to today's layout.</p>
+    <div class="frame b">
+      <div class="copy">
+        <div class="eyebrow">Somatic sex &amp; intimacy coaching</div>
+        <p class="h">Feel more.<br><em>Perform less.</em></p>
+        <p class="sub">1:1 coaching for a closer, more honest relationship with pleasure.</p>
+        <a class="btn" href="#">Book a Discovery Call</a>
+      </div>
+      <img src="assets/img/hero-opt/b.jpg" alt="Claire in a white slip dress by a garden wall">
+    </div>
+  </section>
+
+  <section class="opt">
+    <p class="lab">C. Editorial headline over a wide image</p>
+    <p class="desc">A big centered headline first, then a wide cinematic photo below it. Feels like a magazine cover; the photo you see here is the eyes-closed profile shot.</p>
+    <div class="frame c">
+      <div class="eyebrow">Somatic sex &amp; intimacy coaching</div>
+      <p class="h">Feel more. <em>Perform less.</em></p>
+      <p class="sub">1:1 coaching for a closer, more honest relationship with pleasure.</p>
+      <a class="btn" href="#">Book a Discovery Call</a>
+      <img src="assets/img/hero-opt/c.jpg" alt="Claire in profile with eyes closed in the garden">
+    </div>
+  </section>
+
+  <p class="after">Photos here are examples. Any of the shoot photos can go in any layout.</p>
+</body>
+</html>
