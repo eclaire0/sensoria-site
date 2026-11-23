@@ -47,22 +47,20 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="container hero-grid">
-      <div>
+    <picture class="hero-bg">
+      <source media="(max-width: 760px)" type="image/webp" srcset="assets/img/cover-mobile-600.webp 600w, assets/img/cover-mobile-900.webp 900w" sizes="100vw">
+      <source media="(max-width: 760px)" srcset="assets/img/cover-mobile-600.jpg 600w, assets/img/cover-mobile-900.jpg 900w" sizes="100vw">
+      <source type="image/webp" srcset="assets/img/cover-1000.webp 1000w, assets/img/cover-1600.webp 1600w, assets/img/cover-2400.webp 2400w" sizes="100vw">
+      <img src="assets/img/cover-1600.jpg" srcset="assets/img/cover-1000.jpg 1000w, assets/img/cover-1600.jpg 1600w, assets/img/cover-2400.jpg 2400w" sizes="100vw" width="1600" height="1067" fetchpriority="high" alt="Claire smiling in golden garden light">
+    </picture>
+    <div class="container hero-inner">
+      <div class="hero-copy">
         <p class="hero-eyebrow">Somatic sex &amp; intimacy coaching</p>
         <h1>Feel more.<span class="line2">Perform less.</span></h1>
         <p class="hero-sub">Sensoria is 1:1 coaching for people who want a closer, more honest relationship with pleasure — built through direct conversation, not performance.</p>
         <div class="hero-actions">
-          <a href="index.html#contact" class="btn btn-primary">Book a Discovery Call</a>
+          <a href="index.html#contact" class="btn btn-on-plum">Book a Discovery Call</a>
           <a href="index.html#process" class="scroll-cue">See how sessions work</a>
-        </div>
-      </div>
-      <div class="hero-arch" aria-hidden="true">
-        <div class="hero-arch-frame">
-          <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/video/collar-poster.jpg" data-small="assets/video/collar-720">
-            <source src="assets/video/collar-1080.webm" type="video/webm">
-            <source src="assets/video/collar-1080.mp4" type="video/mp4">
-          </video>
         </div>
       </div>
     </div>
@@ -71,11 +69,17 @@
   <!-- MEANING OF THE NAME -->
   <section class="meaning" id="meaning">
     <div class="container meaning-grid">
-      <div>
-        <div class="meaning-word">Sensoria</div>
-        <p class="meaning-phonetic">/sen-SOR-ee-uh/ — <em>sensory</em> + <em>euphoria</em></p>
+      <div class="hero-arch" aria-hidden="true">
+        <div class="hero-arch-frame">
+          <video class="hero-video" muted loop playsinline preload="none" poster="assets/video/collar-poster.jpg" data-small="assets/video/collar-720" data-lazy>
+            <source src="assets/video/collar-1080.webm" type="video/webm">
+            <source src="assets/video/collar-1080.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
       <div class="meaning-copy">
+        <div class="meaning-word">Sensoria</div>
+        <p class="meaning-phonetic">/sen-SOR-ee-uh/ — <em>sensory</em> + <em>euphoria</em></p>
         <h2>Pleasure isn't a luxury. It's your birthright.</h2>
         <p>Sensoria fuses <em>sensory</em> and <em>euphoria</em> because that's exactly what this work does. It brings you back into every one of your senses and opens you to states of pleasure most people never knew were possible.</p>
         <p>Rooted in somatics and the energetics of sex, this is embodiment you feel, not just understand.</p>
