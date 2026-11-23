@@ -419,7 +419,6 @@
 .coach-intro{ display:grid; grid-template-columns:1.25fr 1fr; gap:60px; align-items:center; }
 @media (max-width:900px){ .coach-intro{ grid-template-columns:1fr; gap:40px; } }
 .coach-photo img{ display:block; width:100%; height:auto; border-radius:var(--media-radius); }
-@media (max-width:900px){ .unused-faq-grid{ grid-template-columns:1fr; gap:36px; } }
 .who-wrap .about-copy{ max-width:860px; }
 .who-wrap .about-list{ display:grid; grid-template-columns:1fr 1fr; gap:12px 40px; }
 @media (max-width:720px){ .who-wrap .about-list{ grid-template-columns:1fr; } }
