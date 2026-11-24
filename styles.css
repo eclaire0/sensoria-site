@@ -396,6 +396,7 @@
 .about-training .section-head{ display:block; margin-bottom:40px; }
 .about-training .section-head h2{ margin-bottom:18px; }
 .about-training .section-head p{ max-width:62ch; }
+.about-training .section-head p + p{ margin-top:14px; }
 .training-list{ list-style:none; padding:0; margin:0; columns:2; column-gap:56px; }
 .training-list li{ break-inside:avoid; padding:16px 0; border-bottom:1px solid var(--line); font-size:16px; font-weight:500; color:var(--ink); }
 @media (max-width:720px){ .training-list{ columns:1; } }
