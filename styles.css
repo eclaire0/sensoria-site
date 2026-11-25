@@ -441,3 +441,8 @@
 .access-link{ display:inline-block; margin-top:18px; font-weight:500; color:var(--magenta); text-decoration:none; border-bottom:1px solid currentColor; padding-bottom:2px; }
 .access-link:hover{ color:var(--magenta-deep); }
 @media (max-width:720px){ .access-note{ padding:28px 24px; } }
+
+/* Courses coming-soon hero */
+.courses-hero{ display:grid; grid-template-columns:1.1fr minmax(0,440px); gap:64px; align-items:center; }
+.courses-hero img{ width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; border-radius:var(--media-radius); display:block; }
+@media (max-width:900px){ .courses-hero{ grid-template-columns:1fr; gap:40px; } .courses-hero picture{ max-width:420px; } }
